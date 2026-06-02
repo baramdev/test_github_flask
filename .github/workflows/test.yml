@@ -1,32 +1,14 @@
-name: Test Endpoint Users
+name: test_actions
 
 on:
   push:
     branches:
-      - 'feat/**'
-      - develop
-  pull_request:
-    branches:
-      - develop
-      - release
       - main
+      - develop
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  messages:
+    runs-on: ubuntu-24.04
     steps:
-      - name: Obtener fuente
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Instalar dependencias
-        run: pip install -r requirements.txt
-
-      - name: Ejecutar test
-        run: pytest test_users.py -v
+      - name: say
+        run: echo "hello from github action in test_actions"
